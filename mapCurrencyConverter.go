@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //Declare Stuct here
 
@@ -54,5 +57,18 @@ func main() {
 		fmt.Println(x, " : ", y.exchRate)
 	}
 	// fmt.Println(mapStruct['CNY'])
+
+	var inputConv, outputConv string
+	var amountCon float32
+
+	fmt.Println("Input currency to convert:")
+	fmt.Scanln(&inputConv)
+	fmt.Println("Input amount to be converted:")
+	fmt.Scan(&amountCon)
+	// currMul := mapStruct[wantedConv].exchRate
+	fmt.Println("Input currency wanted:")
+	fmt.Scan(&outputConv)
+	convertedVal := amountCon / mapStruct[strings.ToUpper(inputConv)].exchRate * mapStruct[strings.ToUpper(outputConv)].exchRate
+	fmt.Printf("The converted value %v of %v to %v is %v", amountCon, inputConv, outputConv, convertedVal)
 
 }
